@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">MyBalance</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="balance_title">Balance Tracker</string>
+    <string name="balance_intro">Your Balance is:</string>
+    <string name="income_button">Income</string>
+    <string name="purchase_button">Purchases</string>
+    <string name="add_purchase">Add Purchase</string>
+    <string name="purchase_clear">Clear</string>
+    <string name="header_text">My purchases</string>
+    <string name="cleared_message">Every purchase is deleted!</string>
+    <string name="incomes_cleared_message">Every income is deleted!</string>
+    <string name="new_purchase">Add purchase</string>
+    <string name="amount_hint">The amount of the purchase</string>
+    <string name="date_hint">The date of the purchase</string>
+    <string name="shop_hint">Where did you buy it?</string>
+    <string name="close_details">Close Details</string>
+    <string name="delete_purchase">Delete this purchase</string>
+    <string name="add_income">Add Income</string>
+    <string name="income_text">My incomes</string>
+    <string name="income_amount_hint">The amount of the income</string>
+    <string name="income_date_hint">The date of the income</string>
+
+    <string-array name="purchase_types">
+        <item>Food</item>
+        <item>Clothes</item>
+        <item>Travel</item>
+        <item>Entertainment</item>
+        <item>Self-Care</item>
+        <item>Sport</item>
+        <item>Bill</item>
+        <item>Utilities</item>
+    </string-array>
+</resources>

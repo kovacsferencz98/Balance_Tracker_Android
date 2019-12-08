@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="income"
+            type="com.example.mybalance.database.Income"/>
+        <variable
+            name="clickListener"
+            type="com.example.mybalance.income.IncomeListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onClick(income)}">
+        <ImageView
+            android:id="@+id/income_amount_image"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@mipmap/poor"
+            app:incomeImage="@{income}"/>
+
+        <TextView
+            android:id="@+id/amount_string"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/income_amount_image"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/income_amount_image"
+            app:layout_constraintTop_toBottomOf="@+id/income_amount_image"
+            tools:text="600 Ft"
+            app:incomeAmount="@{income}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

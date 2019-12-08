@@ -1,0 +1,36 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="text_style">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="BalanceButtons" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textColor">@color/white_text_color</item>
+        <item name="colorAccent">@color/green_color</item>
+        <item name="colorControlHighlight">@color/green_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DeleteButton" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@color/white_text_color</item>
+        <item name="colorPrimary">@color/red_color</item>
+        <item name="colorPrimaryDark">@color/red_color</item>
+        <item name="colorAccent">@color/red_color</item>
+        <item name="android:color">@color/red_color</item>
+        <item name="android:background">@color/red_color</item>
+        <item name="android:colorBackground">@color/red_color</item>
+        <item name="colorControlHighlight">@color/dark_red_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

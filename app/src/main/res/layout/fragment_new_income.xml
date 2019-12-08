@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="newIncomeViewModel"
+            type="com.example.mybalance.income.NewIncomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
+        tools:context=".income.NewIncomeFragment">
+
+        <EditText
+            android:id="@+id/amount_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/big_margin"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="@dimen/big_margin"
+            android:ems="10"
+            android:hint="@string/income_amount_hint"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/date_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/big_margin"
+            android:layout_marginTop="@dimen/big_margin"
+            android:layout_marginEnd="@dimen/big_margin"
+            android:clickable="true"
+            android:editable="false"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="@string/income_date_hint"
+            android:onClick="@{() -> newIncomeViewModel.onSetDate()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/amount_text" />
+
+        <Button
+            android:id="@+id/add_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/normal_margin"
+            android:text="@string/new_purchase"
+            android:enabled="@{newIncomeViewModel.addButtonVisible.booleanValue() == true}"
+            android:onClick="@{() -> newIncomeViewModel.onAddIncome()}"
+            style="@style/BalanceButtons"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
