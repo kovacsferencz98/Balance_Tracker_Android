@@ -26,6 +26,8 @@
             android:ems="10"
             android:hint="@string/income_amount_hint"
             android:inputType="number"
+            android:textAppearance="@style/text_style"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -43,19 +45,23 @@
             android:focusable="false"
             android:hint="@string/income_date_hint"
             android:onClick="@{() -> newIncomeViewModel.onSetDate()}"
+            android:textAppearance="@style/text_style"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/amount_text" />
 
         <Button
             android:id="@+id/add_button"
+            style="@style/BalanceButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/normal_margin"
-            android:text="@string/new_purchase"
             android:enabled="@{newIncomeViewModel.addButtonVisible.booleanValue() == true}"
             android:onClick="@{() -> newIncomeViewModel.onAddIncome()}"
-            style="@style/BalanceButtons"
+            android:text="@string/new_purchase"
+            android:textAppearance="@style/text_style"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

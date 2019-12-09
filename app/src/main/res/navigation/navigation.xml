@@ -17,6 +17,14 @@
             android:id="@+id/action_balanceFragment_to_incomeTrackerFragment"
             app:destination="@id/incomeTrackerFragment"
             app:popUpTo="@+id/balanceFragment" />
+        <action
+            android:id="@+id/action_balanceFragment_to_fancyImageFragment"
+            app:destination="@id/fancyImageFragment"
+            app:popUpTo="@+id/balanceFragment" />
+        <action
+            android:id="@+id/action_balanceFragment_to_aboutFragment2"
+            app:destination="@id/aboutFragment"
+            app:popUpTo="@+id/balanceFragment" />
     </fragment>
     <fragment
         android:id="@+id/purchaseTrackerFragment"
@@ -65,6 +73,10 @@
             android:id="@+id/action_incomeTrackerFragment_to_newIncomeFragment"
             app:destination="@id/newIncomeFragment"
             app:popUpTo="@+id/incomeTrackerFragment" />
+        <action
+            android:id="@+id/action_incomeTrackerFragment_to_incomeDetailFragment"
+            app:destination="@id/incomeDetailFragment"
+            app:popUpTo="@+id/incomeTrackerFragment" />
     </fragment>
     <fragment
         android:id="@+id/newIncomeFragment"
@@ -78,4 +90,24 @@
             android:name="incomeKey"
             app:argType="long" />
     </fragment>
+    <fragment
+        android:id="@+id/incomeDetailFragment"
+        android:name="com.example.mybalance.income.IncomeDetailFragment"
+        android:label="IncomeDetailFragment" >
+        <action
+            android:id="@+id/action_incomeDetailFragment_to_incomeTrackerFragment"
+            app:destination="@id/incomeTrackerFragment"
+            app:popUpTo="@+id/balanceFragment" />
+        <argument
+            android:name="incomeKey"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/fancyImageFragment"
+        android:name="com.example.mybalance.fancyImage.FancyImageFragment"
+        android:label="FancyImageFragment" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.mybalance.AboutFragment"
+        android:label="AboutFragment" />
 </navigation>

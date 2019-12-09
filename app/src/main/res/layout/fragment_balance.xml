@@ -19,11 +19,15 @@
         <Button
             android:id="@+id/income_button"
             style="@style/BalanceButtons"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/normal_margin"
-            android:text="@string/income_button"
             android:onClick="@{() -> balanceViewModel.onIncomeCicked()}"
+            android:text="@string/income_button"
+            android:textAlignment="center"
+            android:textAppearance="@style/text_style"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -51,7 +55,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:srcCompat="@mipmap/balance" />
+            app:srcCompat="@mipmap/logo" />
 
         <TextView
             android:id="@+id/textView2"
@@ -72,7 +76,7 @@
             android:layout_marginStart="@dimen/normal_margin"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/normal_margin"
-            android:text="@{balanceViewModel.balanceString}"
+
             android:textAppearance="@style/text_style"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -82,16 +86,19 @@
         <Button
             android:id="@+id/purchase_button"
             style="@style/BalanceButtons"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/normal_margin"
-            android:text="@string/purchase_button"
             android:onClick="@{() -> balanceViewModel.onPurchaseCicked()}"
+            android:text="@string/purchase_button"
+            android:textAlignment="center"
+            android:textAppearance="@style/text_style"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/income_button"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </layout>

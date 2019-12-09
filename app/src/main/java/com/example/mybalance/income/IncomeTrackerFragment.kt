@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -23,6 +24,7 @@ import com.google.android.material.snackbar.Snackbar
 class IncomeTrackerFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        (activity as AppCompatActivity).supportActionBar?.title = "Income Tracker"
 
         val binding: FragmentIncomeTrackerBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_income_tracker, container, false)
@@ -73,8 +75,9 @@ class IncomeTrackerFragment : Fragment() {
 
         incomeTrackerViewModel.navigateToIncomeDetail.observe(this, Observer { purchase ->
             purchase?.let {
-                /*this.findNavController().navigate(PurchaseTrackerFragmentDirections
-                    .actionPurchaseTrackerFragmentToPurchaseDetailFragment(purchase))*/
+                this.findNavController().navigate(
+                    IncomeTrackerFragmentDirections.actionIncomeTrackerFragmentToIncomeDetailFragment(purchase)
+                )
                 incomeTrackerViewModel.onIncomeNavigated()
             }
         })

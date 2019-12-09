@@ -26,3 +26,7 @@ fun formatIncomeDate(date: Date) : String {
     val simpleDateFormat = SimpleDateFormat(pattern)
     return "Income received on: " + simpleDateFormat.format(date)
 }
+
+fun formatBalanceText(purchase: Long, income : Long) : String {
+    return "" + (income - purchase) + " Ft"
+}

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyBalance</string>
+    <string name="app_name">Track my Balance</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -22,6 +22,15 @@
     <string name="income_text">My incomes</string>
     <string name="income_amount_hint">The amount of the income</string>
     <string name="income_date_hint">The date of the income</string>
+    <string name="purchase_amount_intro">You have spent:</string>
+    <string name="income_amount_intro">You have received:</string>
+    <string name="delete_income">Delete this income</string>
+    <string name="fancy_images">Fancy Images</string>
+    <string name="balance_tracker">Balance Tracker</string>
+    <string name="about">About</string>
+    <string name="about_text">Track my Balance is a very useful android app, which will help you keep track of your incomes and purchases. You will be able to check your balance at any time you want, so you will know how much money you are left with. \n\nWhen adding a new purchase you can choose its type from a preset list, set its amount, date, and where it took place. You can visualize all your purchases at once, and you can also check one\'s details by clicking on it. \n\nSimilarly useful feature is provided for keeping track of your incomes as well.  \n\nIf you\'re bored, you might also scroll trough some fancy pictures, which are obtained from the internet.</string>
+    <string name="purchase_tracker">Purchase Tracker</string>
+    <string name="income_tracker">Income Tracker</string>
 
     <string-array name="purchase_types">
         <item>Food</item>

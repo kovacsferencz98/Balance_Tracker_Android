@@ -34,6 +34,7 @@
             android:textAlignment="center"
             android:textAppearance="@style/text_style"
             android:textSize="24sp"
+            android:text="@string/purchase_amount_intro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/purchase_image" />
@@ -93,6 +94,8 @@
             android:layout_marginBottom="32dp"
             android:onClick="@{() -> purchaseDetailViewModel.onClose()}"
             android:text="@string/close_details"
+            android:textAppearance="@style/text_style"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -105,9 +108,10 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="32dp"
-
-            android:text="@string/delete_purchase"
             android:onClick="@{() -> purchaseDetailViewModel.onDelete()}"
+            android:text="@string/delete_purchase"
+            android:textAppearance="@style/text_style"
+            android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/close_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

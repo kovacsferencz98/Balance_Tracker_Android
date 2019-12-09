@@ -34,13 +34,15 @@
             android:layout_width="0dp"
             android:layout_height="20dp"
             android:textAlignment="center"
+            android:textAppearance="@style/text_style"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/purchase_type_image"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/purchase_type_image"
             app:layout_constraintTop_toBottomOf="@+id/purchase_type_image"
-            tools:text="600 Ft"
-            app:purchaseAmount="@{purchase}" />
+            app:purchaseAmount="@{purchase}"
+            tools:text="600 Ft" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -1,10 +1,11 @@
 package com.example.mybalance.balance
 
 import android.app.Application
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.util.Log
+import androidx.lifecycle.*
+import com.example.mybalance.database.Income
+import com.example.mybalance.database.IncomeDatabaseDao
+import com.example.mybalance.database.Purchase
 import com.example.mybalance.database.PurchaseDatabaseDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -13,18 +14,58 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class BalanceViewModel(
-    dataSource: PurchaseDatabaseDao,
+    purchaseDataSource: PurchaseDatabaseDao,
+    incomeDataSource: IncomeDatabaseDao,
     application: Application
 ) : ViewModel() {
-    val database = dataSource
+    val incomeDatabase = incomeDataSource
+
+    val purchaseDatabase = purchaseDataSource
 
     private var viewModelJob = Job()
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    public var balanceString: String = "Not too much"
+    var incomes = incomeDatabase.getAllIncomes()
 
-    private var balance: Long = 0L
+    val incomeSum =  Transformations.map(incomes) { incomes ->
+        sumIncomes(incomes)
+    }
+
+    fun sumIncomes(incomes : List<Income>) : Long {
+        var sum : Long = 0L
+        incomes.forEach {
+            sum += it.incomeAmount
+        }
+        Log.i("BalanceViewModel", "incomeSum: " + sum)
+        return sum
+    }
+
+    var purchases = purchaseDatabase.getAllPurchases()
+
+    val purchaseSum =  Transformations.map(purchases) { purchases ->
+        sumPurchases(purchases)
+    }
+
+    fun sumPurchases(purchases : List<Purchase>) : Long {
+        var sum : Long = 0L
+        purchases.forEach {
+            sum += it.amount
+        }
+        Log.i("BalanceViewModel", "purchaseSum: " + sum)
+        return sum
+    }
+
+
+
+    val balance = MutableLiveData<String>()
+
+    private fun calculateBalance(income : LiveData<Long> , purchase : LiveData<Long>) : String  {
+        Log.i("BalanceViewModel", "income: " + income.value)
+        Log.i("BalanceViewModel", "purchase: " + income.value)
+        return  "" +  (income.value?.minus(purchase.value!!)) + " Ft"
+    }
+
 
     private val _navigateToPurchase = MutableLiveData<Boolean?>()
 
@@ -58,23 +99,25 @@ class BalanceViewModel(
     }
 
     init {
-        initializeBalance()
+       /* uiScope.launch {
+            balance.value = initTest()
+        }*/
     }
 
-    private fun initializeBalance() {
-        uiScope.launch {
-            balance = getBalanceFromDatabase()
-        }
-    }
-
-    private suspend fun getBalanceFromDatabase() : Long {
+    private suspend fun initTest() : String {
         return withContext(Dispatchers.IO) {
-            var balance = 0L
-            balance
+            Log.i("BalanceViewModel", "Is inc db null " + (incomeDatabase == null))
+            Log.i("BalanceViewModel", "Is purc db null " + (purchaseDatabase == null))
+            Log.i("BalanceViewModel", "Last income " + incomeDatabase.getLastIncome()?.incomeId)
+            Log.i("BalanceViewModel", "Is incomes empty " + incomeDatabase.getAllIncomes().value?.isEmpty())
+            incomes = incomeDatabase.getAllIncomes()
+            purchases = purchaseDatabase.getAllPurchases()
+            Log.i("BalanceViewModel", "Purchases empty? " + purchases.value?.toString())
+            Log.i("BalanceViewModel", "Incomes empty? " + incomes.value?.toString())
+            val bal = calculateBalance(incomeSum, purchaseSum)
+            Log.i("BalanceViewModel", "Balance: " + bal)
+            bal
         }
     }
-
-
-
 
 }

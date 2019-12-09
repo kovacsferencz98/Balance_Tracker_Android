@@ -8,7 +8,12 @@ buildscript {
         coroutine_version = '1.0.0'
         gradleVersion = '3.4.0'
         navigationVersion = '1.0.0-alpha07'
+        supportlibVersion = '1.0.0-rc03'
         dataBindingCompilerVersion = gradleVersion // Always need to be the same.
+        version_moshi = "1.8.0"
+        version_retrofit = "2.5.0"
+        version_glide = "4.8.0"
+        version_retrofit_coroutines_adapter = "0.9.2"
     }
     repositories {
         google()

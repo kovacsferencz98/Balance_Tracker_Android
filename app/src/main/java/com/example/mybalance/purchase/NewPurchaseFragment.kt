@@ -14,6 +14,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.CalendarView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -31,6 +32,7 @@ class NewPurchaseFragment : Fragment(), AdapterView.OnItemSelectedListener  {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        (activity as AppCompatActivity).supportActionBar?.title = "New Purchase"
 
         val binding: FragmentNewPurchaseBinding  = DataBindingUtil.inflate(
             inflater, R.layout.fragment_new_purchase, container, false)
