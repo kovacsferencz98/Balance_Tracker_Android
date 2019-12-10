@@ -10,8 +10,8 @@ import kotlinx.coroutines.*
 import java.util.*
 
 class NewIncomeViewModel (
-private val incomeKey: Long = 0L,
-dataSource: IncomeDatabaseDao) : ViewModel() {
+    private val incomeKey: Long = 0L,
+    dataSource: IncomeDatabaseDao) : ViewModel() {
 
     val database = dataSource
 
@@ -34,15 +34,17 @@ dataSource: IncomeDatabaseDao) : ViewModel() {
     val calendar: LiveData<Calendar?>
         get() = _calendar
 
-    val addButtonVisible = MutableLiveData<Boolean?>()
+    private val _addButtonVisible = MutableLiveData<Boolean?>()
+    val addButtonVisible : LiveData<Boolean?>
+        get() = _addButtonVisible
 
     fun updateAddButtonVisibility() {
         if(income.value != null) {
             Log.i("NewIncomeViewModel", "Update button visibility: " + income.value.toString())
-            addButtonVisible.value = income.value!!.incomeAmount > 0
+            _addButtonVisible.value = income.value!!.incomeAmount > 0
             Log.i("NewIncomeViewModel", "Update button visibility: " + addButtonVisible.value)
         } else
-            addButtonVisible.value = false
+            _addButtonVisible.value = false
     }
 
     init{
@@ -88,6 +90,9 @@ dataSource: IncomeDatabaseDao) : ViewModel() {
         val regex =  Regex("\\d+")
         if(regex.matches(amount)) {
             income.value?.incomeAmount = amount.toLong()
+            updateAddButtonVisibility()
+        }else {
+            income.value?.incomeAmount = -1
             updateAddButtonVisibility()
         }
     }

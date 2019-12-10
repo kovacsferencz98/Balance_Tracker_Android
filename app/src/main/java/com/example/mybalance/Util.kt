@@ -1,5 +1,6 @@
 package com.example.mybalance
 
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -8,7 +9,7 @@ fun formatPurchaseShop(shop : String) : String {
 }
 
 fun formatPurchaseAmount(amount: Long) : String {
-    return "$amount Ft";
+    return formatLong(amount)!!
 }
 
 fun formatPurchaseDate(date: Date) : String {
@@ -18,7 +19,12 @@ fun formatPurchaseDate(date: Date) : String {
 }
 
 fun formatIncomeAmount(amount: Long) : String {
-    return "$amount Ft";
+    return formatLong(amount)!!
+}
+
+private fun formatLong(amount: Long): String? {
+    val dec = DecimalFormat("###,###.## Ft")
+    return dec.format(amount)
 }
 
 fun formatIncomeDate(date: Date) : String {
@@ -28,5 +34,5 @@ fun formatIncomeDate(date: Date) : String {
 }
 
 fun formatBalanceText(purchase: Long, income : Long) : String {
-    return "" + (income - purchase) + " Ft"
+    return formatLong(income - purchase)!!
 }

@@ -24,7 +24,6 @@ class NewPurchaseViewModel (
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-
     private val _navigateToPurchaseTracker = MutableLiveData<Boolean?>()
     val navigateToPurchaseTracker: LiveData<Boolean?>
         get() = _navigateToPurchaseTracker
@@ -37,19 +36,20 @@ class NewPurchaseViewModel (
     val calendar: LiveData<Calendar?>
         get() = _calendar
 
-    val addButtonVisible = MutableLiveData<Boolean?>()
+    private val _addButtonVisible = MutableLiveData<Boolean?>()
+    val addButtonVisible : LiveData<Boolean?>
+        get() = _addButtonVisible
 
     fun updateAddButtonVisibility() {
         if(purchase.value != null) {
             Log.i("NewPurchaseViewModel", "Update button visibility: " + purchase.value.toString())
-            addButtonVisible.value = !purchase.value?.shop.equals("")
+            _addButtonVisible.value = !purchase.value?.shop.equals("")
                     && purchase.value!!.amount > 0
                     && !purchase.value?.purchaseType.equals("")
             Log.i("NewPurchaseViewModel", "Update button visibility: " + addButtonVisible.value)
         } else
-            addButtonVisible.value = false
+            _addButtonVisible.value = false
     }
-
 
     init{
         initPurchase()
@@ -105,6 +105,9 @@ class NewPurchaseViewModel (
         val regex =  Regex("\\d+")
         if(regex.matches(amount)) {
             purchase.value?.amount = amount.toLong()
+            updateAddButtonVisibility()
+        } else {
+            purchase.value?.amount = -1
             updateAddButtonVisibility()
         }
     }

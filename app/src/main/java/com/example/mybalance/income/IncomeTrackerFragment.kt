@@ -40,7 +40,7 @@ class IncomeTrackerFragment : Fragment() {
         binding.incomeTrackerViewModel = incomeTrackerViewModel
 
         val adapter = IncomeAdapter(IncomeListener { incomeId ->
-            Toast.makeText(context, "${incomeId}", Toast.LENGTH_LONG).show()
+            //Toast.makeText(context, "${incomeId}", Toast.LENGTH_LONG).show()
             incomeTrackerViewModel.onIncomeClicked(incomeId)
         })
 

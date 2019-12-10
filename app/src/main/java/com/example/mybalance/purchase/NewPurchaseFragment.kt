@@ -148,8 +148,9 @@ class NewPurchaseFragment : Fragment(), AdapterView.OnItemSelectedListener  {
     }
 
     override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long) {
+        hideKeyBoard(this.view)
         var types = resources.getStringArray(R.array.purchase_types)
-        Toast.makeText(this.context, "Chnged value to " + types[pos], Toast.LENGTH_LONG).show()
+       // Toast.makeText(this.context, "Changed value to " + types[pos], Toast.LENGTH_LONG).show()
         newPurchaseViewModel.onTypeChanged(types[pos])
     }
 

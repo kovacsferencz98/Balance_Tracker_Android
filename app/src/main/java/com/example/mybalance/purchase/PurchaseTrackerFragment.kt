@@ -36,7 +36,7 @@ class PurchaseTrackerFragment : Fragment()  {
         binding.purchaseTrackerViewModel = purchaseTrackerViewModel
 
         val adapter = PurchaseAdapter(PurchaseListener { purchaseId ->
-            Toast.makeText(context, "${purchaseId}", Toast.LENGTH_LONG).show()
+            //Toast.makeText(context, "${purchaseId}", Toast.LENGTH_LONG).show()
             purchaseTrackerViewModel.onPurchaseClicked(purchaseId)
         })
 

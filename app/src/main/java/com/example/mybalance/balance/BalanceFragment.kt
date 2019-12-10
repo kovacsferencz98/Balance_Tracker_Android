@@ -27,7 +27,7 @@ class BalanceFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        (activity as AppCompatActivity).supportActionBar?.title = "Balance Tracker"
+        (activity as AppCompatActivity).supportActionBar?.title = "Track my Balance"
 
         val binding : FragmentBalanceBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_balance, container, false)
